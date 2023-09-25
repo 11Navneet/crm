@@ -1,0 +1,9 @@
+.potentialLead{
+    flex: 4;
+}
+
+.potentialLeadHeader {
+    color: darkblue;
+    font-weight: 900;
+    font-size: larger;
+}  

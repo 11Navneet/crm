@@ -1,0 +1,72 @@
+.userData {
+  flex: 4;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  text-align: center; /* Center the title horizontally */
+}
+
+.userDataTitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.userDataContainer {
+  display: flex;
+  flex-direction: column; /* Arrange items vertically */
+  align-items: center; /* Center items horizontally */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.userDataOptionContainer {
+  display: flex;
+  flex-direction: row; /* Arrange items vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.userDataInput {
+  margin-bottom: 20px; /* Add margin between the input groups */
+  padding: 10px;
+  text-align: left; /* Align labels and inputs to the left */
+}
+
+label {
+  flex: 1;
+  margin-bottom: 10px;
+}
+
+select,
+input[type="date"] {
+  flex: 2;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+
+}
+
+.userDataButtonContainer {
+  text-align: center; /* Center the button horizontally */
+}
+
+.userDataButton {
+  margin-top: 20px;
+}
+
+.exportButton {
+  background-color: darkblue;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.exportButton:hover {
+  background-color: rgb(41, 41, 224);
+}
+

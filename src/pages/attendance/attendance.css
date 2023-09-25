@@ -1,0 +1,30 @@
+.attendance{
+    flex: 4;
+    justify-content: center;
+}
+
+.attendanceHeader {
+    color: darkblue;
+    font-weight: 900;
+    font-size: larger;
+}
+
+.attendance-title-div{
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.attendance-title-div h3{
+    font-size: clamp(24px, 2vw, 32px);
+}
+
+.attendance-title-div button{
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+    background-color: var(--bg-clr);
+    border: none;
+    cursor: pointer;
+    color:var(--clr-white);
+}
+

@@ -1,0 +1,13 @@
+.home{
+    padding:1rem;
+    width:85vw;
+    max-width:85vw;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
+.homeWidgets{
+    display: flex;
+    justify-content: space-around;
+}
