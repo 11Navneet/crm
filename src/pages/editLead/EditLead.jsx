@@ -1,25 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useParams, useNavigate } from 'react-router-dom';
 import '..//..//assets/styles/common-form.css';
-import { useNavigate } from "react-router-dom";
 import { useLeadContext } from '../../utils/contexts/LeadContext';
-import { v4 as uuidv4 } from 'uuid';
 
-export default function NewLead() {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
-  const { addLead } = useLeadContext();
+export default function EditLead() {
+  const id = useParams().leadId;
+  const { register, handleSubmit, formState: { errors }, setValue } = useForm();
+  const { getLeadById, updateLead } = useLeadContext();
   const navigate = useNavigate();
 
-  const generateUniqueShortId = () => {
-    const uuid = uuidv4(); 
-    return uuid.slice(0, 4); 
-  };
+  const lead = getLeadById(id);
+
+
+  useEffect(() => {
+    if (lead) {
+      setValue('name', lead.name);
+      setValue('email', lead.email);
+      setValue('phone', lead.phone);
+      setValue('college', lead.college);
+      setValue('status', lead.status);
+    }
+  }, [lead, setValue]);
 
   const handleFormSubmit = (data) => {
-    const newLead = { ...data, id: generateUniqueShortId() };
-    addLead(newLead);
-    reset();
-    navigate("/leads");
+    const updatedLead = { id, ...data };
+    updateLead(updatedLead);
+    navigate('/leads');
   };
 
   return (
@@ -27,10 +34,10 @@ export default function NewLead() {
       <form onSubmit={handleSubmit(handleFormSubmit)} className='main-form'>
 
         <div className='input-div'>
-          <label htmlFor="name" className='input-label'>Name: </label>
+          <label htmlFor='name' className='input-label'>Name: </label>
           <input
-            type="text"
-            {...register("name", {
+            type='text'
+            {...register('name', {
               required: 'Name is required',
               pattern: {
                 value: /^[a-zA-Z]+(\s[a-zA-Z]+)*$/,
@@ -40,14 +47,14 @@ export default function NewLead() {
             name='name'
             className='input-field'
           />
-          {errors.name && <span className="error">{errors.name.message}</span>}
+          {errors.name && <span className='error'>{errors.name.message}</span>}
         </div>
 
         <div className='input-div'>
-          <label htmlFor="email" className='input-label'>Email: </label>
+          <label htmlFor='email' className='input-label'>Email: </label>
           <input
-            type="email"
-            {...register("email", {
+            type='email'
+            {...register('email', {
               required: 'Email is required',
               pattern: {
                 value: /^[A-Za-z0-9]+@[a-z]+\.[a-z]{2,}$/,
@@ -57,31 +64,31 @@ export default function NewLead() {
             name='email'
             className='input-field'
           />
-          {errors.email && <span className="error">{errors.email.message}</span>}
+          {errors.email && <span className='error'>{errors.email.message}</span>}
         </div>
 
         <div className='input-div'>
-          <label htmlFor="phone" className='input-label'>Phone: </label>
+          <label htmlFor='phone' className='input-label'>Phone: </label>
           <input
-            type="tel"
-            {...register("phone", {
+            type='tel'
+            {...register('phone', {
               required: 'Phone is required',
               pattern: {
                 value: /^[0-9]{10}$/,
                 message: 'Wrong phone format',
               },
             })}
-            name="phone"
+            name='phone'
             className='input-field'
           />
-          {errors.phone && <span className="error">{errors.phone.message}</span>}
+          {errors.phone && <span className='error'>{errors.phone.message}</span>}
         </div>
 
         <div className='input-div'>
-          <label htmlFor="college" className='input-label'>College: </label>
+          <label htmlFor='college' className='input-label'>College: </label>
           <input
-            type="text"
-            {...register("college", {
+            type='text'
+            {...register('college', {
               required: 'College is required',
               pattern: {
                 value: /^[a-zA-Z]+(\s[a-zA-Z]+)*$/,
@@ -91,13 +98,13 @@ export default function NewLead() {
             name='college'
             className='input-field'
           />
-          {errors.college && <span className="error">{errors.college.message}</span>}
+          {errors.college && <span className='error'>{errors.college.message}</span>}
         </div>
 
         <div className='input-div'>
-          <label htmlFor="status" className='input-label'>Status: </label>
+          <label htmlFor='status' className='input-label'>Status: </label>
           <select
-            {...register("status", {
+            {...register('status', {
               required: 'Status is required',
               pattern: {
                 value: /\S/,
@@ -107,23 +114,20 @@ export default function NewLead() {
             name='status'
             className='input-field'
           >
-            <option value="">Select</option>
-            <option value="Not answered">Not answered</option>
-            <option value="Not interested">Not interested</option>
-            <option value="Pending">Pending</option>
-            <option value="Registered">Registered</option>
+            <option value=''>Select</option>
+            <option value='Not answered'>Not answered</option>
+            <option value='Not interested'>Not interested</option>
+            <option value='Pending'>Pending</option>
+            <option value='Registered'>Registered</option>
           </select>
-          {errors.status && <span className="error">{errors.status.message}</span>}
+          {errors.status && <span className='error'>{errors.status.message}</span>}
         </div>
 
         <div className='input-div'>
-          <input type="submit" className='btn' value="Submit" />
+          <input type='submit' className='btn' value='Submit' />
         </div>
 
       </form>
     </div>
   );
 }
-
-
-

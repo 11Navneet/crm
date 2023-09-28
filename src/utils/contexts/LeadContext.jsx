@@ -1,4 +1,4 @@
-// LeadContext.js
+
 import React, { createContext, useContext, useState } from "react";
 
 const LeadContext = createContext();
@@ -14,10 +14,17 @@ export function LeadProvider({ children }) {
     setLeads(leads.filter((lead) => lead.id !== id));
   };
 
+  const getLeadById = (id) => {
+    // Implement logic to fetch lead by ID from the leads array
+    return leads.find((lead) => lead.id === id);
+  };
+  
+
   const value = {
     leads,
     addLead,
     deleteLead,
+    getLeadById, // Add the getLeadById function to the context
   };
 
   return <LeadContext.Provider value={value}>{children}</LeadContext.Provider>;
