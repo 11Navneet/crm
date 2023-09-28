@@ -53,93 +53,10 @@ export const userData = [
 export const userRows = [
   {
     id: 1,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    role: "abc",
-  },
-  {
-    id: 2,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    role: "abc",
-  },
-  {
-    id: 3,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    role: "abc",
-  },
-  {
-    id: 4,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    role: "abc",
-  },
-  {
-    id: 5,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    role: "abc",
-  },
-  {
-    id: 6,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    role: "abc",
-  },
-  {
-    id: 7,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    role: "abc",
-  },
-  {
-    id: 8,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    role: "abc",
-  },
-  {
-    id: 9,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    role: "abc",
-  },
-  {
-    id: 10,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    role: "abc",
+    Name: "Jon Snow",
+    Email: "jon@gmail.com",
+    Active: "active",
+    Role: "abc",
   },
 ];
 
@@ -147,93 +64,11 @@ export const leadRows = [
   {
     id: 1,
     username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "jon@gmail.com",
     status: "active",
     college: "xyz",
   },
-  {
-    id: 2,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    college: "xyz",
-  },
-  {
-    id: 3,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    college: "xyz",
-  },
-  {
-    id: 4,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    college: "xyz",
-  },
-  {
-    id: 5,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    college: "xyz",
-  },
-  {
-    id: 6,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    college: "xyz",
-  },
-  {
-    id: 7,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    college: "xyz",
-  },
-  {
-    id: 8,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    college: "xyz",
-  },
-  {
-    id: 9,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    college: "xyz",
-  },
-  {
-    id: 10,
-    username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    college: "xyz",
-  },
+  
 ];
 
 
@@ -241,8 +76,6 @@ export const potentialLeadRows = [
   {
     id: 1,
     username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "jon@gmail.com",
     status: "active",
     college: "xyz",
@@ -250,8 +83,6 @@ export const potentialLeadRows = [
   {
     id: 2,
     username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "jon@gmail.com",
     status: "active",
     college: "xyz",
@@ -259,8 +90,6 @@ export const potentialLeadRows = [
   {
     id: 3,
     username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "jon@gmail.com",
     status: "active",
     college: "xyz",
@@ -268,8 +97,6 @@ export const potentialLeadRows = [
   {
     id: 4,
     username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "jon@gmail.com",
     status: "active",
     college: "xyz",
@@ -277,8 +104,6 @@ export const potentialLeadRows = [
   {
     id: 5,
     username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "jon@gmail.com",
     status: "active",
     college: "xyz",
@@ -286,8 +111,6 @@ export const potentialLeadRows = [
   {
     id: 6,
     username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "jon@gmail.com",
     status: "active",
     college: "xyz",
@@ -295,8 +118,6 @@ export const potentialLeadRows = [
   {
     id: 7,
     username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "jon@gmail.com",
     status: "active",
     college: "xyz",
@@ -304,8 +125,6 @@ export const potentialLeadRows = [
   {
     id: 8,
     username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "jon@gmail.com",
     status: "active",
     college: "xyz",
@@ -313,8 +132,6 @@ export const potentialLeadRows = [
   {
     id: 9,
     username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "jon@gmail.com",
     status: "active",
     college: "xyz",
@@ -322,8 +139,6 @@ export const potentialLeadRows = [
   {
     id: 10,
     username: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "jon@gmail.com",
     status: "active",
     college: "xyz",

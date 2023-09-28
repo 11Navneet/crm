@@ -1,54 +1,56 @@
-import React,{useContext} from "react";
-import { useNavigate } from "react-router-dom";
+import React,{useState, useEffect, useContext} from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import {v4 as uuidv4} from 'uuid';
 
 import {UserContext} from '..//..//utils/contexts/UserContext'
 import '..//..//assets/styles/common-form.css'
 
-export default function NewUser() {
+ function EditUser() {
 
-  const navigate = useNavigate();
-  const {usersData, setUsersData} = useContext(UserContext)
+    const{
+        register,
+        handleSubmit,
+        getValues,
+        setValue,
+        formState: { errors },
+    } = useForm();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+    const navigate = useNavigate();
+    const {usersData, setUsersData} = useContext(UserContext);
 
-  const onSubmit = (data) => {
-
-    console.log('data',data);
-    const {name,email,active,role} = data;
-
-    if( !name || !email || !active || !role){
-      console.log(errors);
-    }
-  
-    if(!usersData){
-      let id = uuidv4();
-      id = id.slice(0,4);
-      setUsersData({id, name, email, active, role});
-    }
+    let id = useParams().userId;
+    let user = usersData.find((user)=>user.id === id );
+    console.log('filtered user: ',user);
     
-    else{
-      let id = uuidv4();
-      id = id.slice(0,4);
+    const onSubmit = (data) => {
+        console.log('data',data);
+        let {name,email,active,role} = data;
+        let updatedData = usersData.map((user)=>{
+          if(user.id == id){
+            user.name = name;
+            user.email = email;
+            user.active = active;
+            user.role = role;
+          }
+        });
 
-      setUsersData([...usersData,{id, name, email, active, role}]);
-  
-      navigate('/users');
-    }
-    
-  };
+        console.log('updated data:',updatedData);
 
-  console.log('users data in state: ',usersData);
+        navigate('/users');
+    };
+
+    useEffect(()=>{
+      setValue('name',user.name)
+      setValue('email',user.email)
+      setValue('active',user.active)
+      setValue('role',user.role)
+    },[user])
 
   return (
     <div className="form-bg">
       
         <form onSubmit={handleSubmit(onSubmit)} className="main-form">
+
           <div className="input-div">
             <label htmlFor="name" className="input-label">Name: </label>
             <input
@@ -58,6 +60,7 @@ export default function NewUser() {
               {...register("name", { required: 'Name is required' })}
             />
           </div>
+
           <div className="input-div">
             <label htmlFor="email" className="input-label">Email: </label>
             <input
@@ -67,9 +70,13 @@ export default function NewUser() {
               {...register("email", { required: 'Email is required' })}
             />
           </div>
+
           <div className="input-div">
             <label htmlFor="active" className="input-label">Active: </label>
-            <select {...register("active", { required: true })} className="input-field">
+            <select 
+              className="input-field" 
+              {...register("active", { required: true })}  
+            >
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
@@ -77,8 +84,10 @@ export default function NewUser() {
 
           <div className="input-div">
             <label htmlFor="role" className="input-label">Role: </label>
-            <select {...register("role", { required: 'Role is required' })} 
-            className="input-field">
+            <select 
+              className="input-field" 
+              {...register("role", { required: 'Role is required' })} 
+            >
               <option value="">Select</option>
               <option value="Intern">Intern</option>
               <option value="Employee">Employee</option>
@@ -91,7 +100,10 @@ export default function NewUser() {
           <div className="input-div">
             <input type="submit" className="btn"/>
           </div>
+
         </form>
     </div>
-  );
+  )
 }
+
+export default EditUser

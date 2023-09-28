@@ -2,35 +2,31 @@ import React from "react";
 import "./lead.css";
 import { useNavigate } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
-import { leadRows } from "../../dummyData";
 import { DeleteOutline } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useLeadContext } from "../../utils/contexts/LeadContext";
+
+
 
 export default function Lead() {
-  const [data, setData] = useState(leadRows);
-
+  const { leads, deleteLead } = useLeadContext();
+  
   const navigate = useNavigate();
+  
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    deleteLead(id);
   };
+
 
   const columns = [
     { field: "id", headerName: "ID", width: 90, headerClassName: "leadHeader" },
     {
-      field: "user",
-      headerName: "User",
-      width: 200,
+      field: "name",
+      headerName: "Name",
+      width: 150,
       headerClassName: "leadHeader",
-      renderCell: (params) => {
-        return (
-          <div className="userListUser">
-            <img className="userListImg" src={params.row.avatar} alt="" />
-            {params.row.username}
-          </div>
-        );
-      },
+      
     },
     { field: "email", headerName: "Email", width: 200, headerClassName: "leadHeader" },
     {
@@ -40,9 +36,15 @@ export default function Lead() {
       headerClassName: "leadHeader"
     },
     {
+      field: "phone",
+      headerName: "Phone",
+      width: 120,
+      headerClassName: "leadHeader"
+    },
+    {
       field: "college",
       headerName: "College",
-      width: 160,
+      width: 180,
       headerClassName: "leadHeader"
     },
     {
@@ -70,10 +72,10 @@ export default function Lead() {
     <div className="lead">
       <div className="lead-title-div">
         <h3>Leads</h3>
-        <button onClick={()=>navigate('/newUser')}>ADD</button>
+        <button onClick={()=>navigate('/newLead')}>ADD</button>
       </div>
       <DataGrid
-        rows={data}
+        rows={leads}
         columns={columns}
         initialState={{
           pagination: {

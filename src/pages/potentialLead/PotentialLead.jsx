@@ -69,6 +69,12 @@ export default function PotentialLead() {
   ];
   return(
     <div className="potentialLead">
+
+      <div className="potentialLead-title-div">
+        <h3>Potential Leads</h3>
+      </div>
+
+
       <DataGrid
         rows={data}
         columns={columns}

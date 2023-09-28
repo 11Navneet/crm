@@ -86,7 +86,7 @@ export default function Attendance() {
     <div className="attendance">
       <div className="attendance-title-div">
         <h3>Attendance</h3>
-        <button onClick={() => navigate("/newUser")}>ADD</button>
+        <button onClick={() => navigate("/markAttendance")}>ADD</button>
       </div>
       <DataGrid
         rows={data}
