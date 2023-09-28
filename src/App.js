@@ -16,11 +16,13 @@ import NewUser from "./pages/newUser/NewUser";
 import EditUser from './pages/editUser/EditUser';
 
 import Lead from "./pages/lead/Lead";
+import EditLead from "./pages/editLead/EditLead";
 import NewLead from './pages/newLead/NewLead';
 import PotentialLead from "./pages/potentialLead/PotentialLead";
 
 import UserData from "./pages/userData/UserData";
 import Report from "./pages/report/Report";
+
 
 
 function App() {
@@ -43,6 +45,7 @@ function App() {
           <Route path="/newUser" element={<NewUser />} />
 
           <Route path="/leads" element={<Lead />} />
+          <Route path="/potentialLeads" element={<PotentialLead />} />
           <Route path="/newLead" element={<NewLead />} />
 
           <Route path="/potentialLeads" element={<PotentialLead />} />
