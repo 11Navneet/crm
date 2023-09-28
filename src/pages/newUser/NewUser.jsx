@@ -30,6 +30,8 @@ export default function NewUser() {
       let id = uuidv4();
       id = id.slice(0,4);
       setUsersData({id, name, email, active, role});
+      
+      navigate('/users');
     }
     
     else{

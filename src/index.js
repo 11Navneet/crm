@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from './utils/contexts/UserContext';
 import App from './App';
 import { LeadProvider } from './utils/contexts/LeadContext';
+import { AttendanceProvider } from './utils/contexts/AttendanceContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,7 +12,9 @@ root.render(
     <BrowserRouter>
       <UserProvider>
         <LeadProvider>
-          <App />
+          <AttendanceProvider>
+            <App />
+          </AttendanceProvider>
         </LeadProvider>
       </UserProvider>
     </BrowserRouter>

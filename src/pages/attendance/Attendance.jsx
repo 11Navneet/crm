@@ -1,18 +1,22 @@
-import React from "react";
-import { DataGrid } from "@mui/x-data-grid";
-import { DeleteOutline } from "@mui/icons-material";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import { attendanceRows } from "../../dummyData";
+import React, {useContext} from "react";
 import { useNavigate } from "react-router-dom";
+
+import { DataGrid } from "@mui/x-data-grid";
+import EditIcon from '@mui/icons-material/Edit';
+import { DeleteOutline } from "@mui/icons-material";
+
+import {AttendanceContext} from '..//..//utils/contexts/AttendanceContext'
 import "./attendance.css";
 
 export default function Attendance() {
-  const [data, setData] = useState(attendanceRows);
 
   const navigate = useNavigate();
+  const {attendanceData, setAttendanceData} = useContext(AttendanceContext);
+
+  console.log('data in usersList',attendanceData);
+
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    setAttendanceData(attendanceData.filter((item) => item.id !== id));
   };
 
   const columns = [
@@ -27,36 +31,18 @@ export default function Attendance() {
       headerName: "Date",
       width: 200,
       headerClassName: "attendanceHeader",
-    },
-    {
-      field: "day",
-      headerName: "Day",
-      width: 150,
-      headerClassName: "attendanceHeader",
       renderCell: (params) => {
-        return (
-          <div className="userListUser">
-            <img className="userListImg" src={params.row.avatar} alt="" />
-            {params.row.username}
-          </div>
-        );
+        return <div className="userListUser">{params.row.date}</div>;
       },
     },
     {
-      field: "task",
-      headerName: "Task",
-      width: 120,
-      headerClassName: "attendanceHeader",
-    },
-
-    {
-      field: "login",
+      field: "loginTime",
       headerName: "Login Time",
       width: 160,
       headerClassName: "attendanceHeader",
     },
     {
-      field: "logout",
+      field: "logoutTime",
       headerName: "Logout Time",
       width: 150,
       headerClassName: "attendanceHeader",
@@ -69,9 +55,11 @@ export default function Attendance() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/user/" + params.row.id}>
-              <button className="userListEdit">Edit</button>
-            </Link>
+            <EditIcon
+              className="userListEdit"
+              onClick={() => navigate(`/attendance/${params.row.id}`)}
+            />
+
             <DeleteOutline
               className="userListDelete"
               onClick={() => handleDelete(params.row.id)}
@@ -88,8 +76,10 @@ export default function Attendance() {
         <h3>Attendance</h3>
         <button onClick={() => navigate("/markAttendance")}>ADD</button>
       </div>
-      <DataGrid
-        rows={data}
+      {
+        attendanceData &&       
+        <DataGrid
+        rows={attendanceData}
         columns={columns}
         initialState={{
           pagination: {
@@ -99,6 +89,7 @@ export default function Attendance() {
         pageSizeOptions={[5, 10]}
         checkboxSelection
       />
+      }
     </div>
   );
 }

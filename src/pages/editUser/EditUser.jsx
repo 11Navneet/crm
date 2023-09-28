@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useContext} from "react";
+import React,{useEffect, useContext} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
@@ -10,7 +10,6 @@ import '..//..//assets/styles/common-form.css'
     const{
         register,
         handleSubmit,
-        getValues,
         setValue,
         formState: { errors },
     } = useForm();
@@ -26,7 +25,7 @@ import '..//..//assets/styles/common-form.css'
         console.log('data',data);
         let {name,email,active,role} = data;
         let updatedData = usersData.map((user)=>{
-          if(user.id == id){
+          if(user.id === id){
             user.name = name;
             user.email = email;
             user.active = active;
@@ -44,7 +43,7 @@ import '..//..//assets/styles/common-form.css'
       setValue('email',user.email)
       setValue('active',user.active)
       setValue('role',user.role)
-    },[user])
+    },[user, setValue])
 
   return (
     <div className="form-bg">
