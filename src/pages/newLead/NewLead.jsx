@@ -1,129 +1,127 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import '..//..//assets/styles/common-form.css';
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLeadContext } from '../../utils/contexts/LeadContext';
-import { v4 as uuidv4 } from 'uuid';
+import { useForm } from "react-hook-form";
+import { v4 as uuidv4 } from "uuid";
+
+import { LeadContext } from "../../utils/contexts/LeadContext";
+import "..//..//assets/styles/common-form.css";
 
 export default function NewLead() {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
-  const { addLead } = useLeadContext();
   const navigate = useNavigate();
+  const { leadsData, setLeadsData } = useContext(LeadContext);
 
-  const generateUniqueShortId = () => {
-    const uuid = uuidv4(); 
-    return uuid.slice(0, 4); 
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleFormSubmit = (data) => {
-    const newLead = { ...data, id: generateUniqueShortId() };
-    addLead(newLead);
-    reset();
-    navigate("/leads");
+  const onSubmit = (data) => {
+    console.log("data", data);
+    const { name, email, phone, college, status } = data;
+
+    if (!name || !email || !phone || !college || !status) {
+      console.log(errors);
+    }
+
+    if (!leadsData) {
+      let id = uuidv4();
+      id = id.slice(0, 4);
+      setLeadsData({ id, name, email, phone, college, status });
+
+      navigate("/leads");
+    } else {
+      let id = uuidv4();
+      id = id.slice(0, 4);
+
+      setLeadsData([...leadsData, { id, name, email, phone, college, status }]);
+
+      navigate("/leads");
+    }
   };
 
   return (
-    <div className='form-bg'>
-      <form onSubmit={handleSubmit(handleFormSubmit)} className='main-form'>
-
-        <div className='input-div'>
-          <label htmlFor="name" className='input-label'>Name: </label>
+    <div className="form-bg">
+      <form onSubmit={handleSubmit(onSubmit)} className="main-form">
+        <div className="input-div">
+          <label htmlFor="name" className="input-label">
+            Name:{" "}
+          </label>
           <input
             type="text"
+            className="input-field"
+            pattern="[a-zA-Z]+(\s[a-zA-Z]+)*"
             {...register("name", {
-              required: 'Name is required',
-              pattern: {
-                value: /^[a-zA-Z]+(\s[a-zA-Z]+)*$/,
-                message: 'Wrong name format',
-              },
+              required: "Name is required",
             })}
-            name='name'
-            className='input-field'
           />
-          {errors.name && <span className="error">{errors.name.message}</span>}
         </div>
 
-        <div className='input-div'>
-          <label htmlFor="email" className='input-label'>Email: </label>
+        <div className="input-div">
+          <label htmlFor="email" className="input-label">
+            Email:{" "}
+          </label>
           <input
             type="email"
+            className="input-field"
+            pattern="[A-Za-z0-9]+@[a-z]+\.[a-z]{2,}"
             {...register("email", {
-              required: 'Email is required',
-              pattern: {
-                value: /^[A-Za-z0-9]+@[a-z]+\.[a-z]{2,}$/,
-                message: 'Wrong email format',
-              },
+              required: "Email is required",
             })}
-            name='email'
-            className='input-field'
           />
-          {errors.email && <span className="error">{errors.email.message}</span>}
         </div>
 
-        <div className='input-div'>
-          <label htmlFor="phone" className='input-label'>Phone: </label>
+        <div className="input-div">
+          <label htmlFor="phone" className="input-label">
+            Phone:{" "}
+          </label>
           <input
             type="tel"
+            className="input-field"
+            pattern="[0-9]{10}"
             {...register("phone", {
-              required: 'Phone is required',
-              pattern: {
-                value: /^[0-9]{10}$/,
-                message: 'Wrong phone format',
-              },
+              required: "Phone is required",
             })}
-            name="phone"
-            className='input-field'
           />
-          {errors.phone && <span className="error">{errors.phone.message}</span>}
         </div>
 
-        <div className='input-div'>
-          <label htmlFor="college" className='input-label'>College: </label>
+        <div className="input-div">
+          <label htmlFor="college" className="input-label">
+            College:{" "}
+          </label>
           <input
             type="text"
+            className="input-field"
+            pattern="[a-zA-Z]+(\s[a-zA-Z]+)*"
             {...register("college", {
-              required: 'College is required',
-              pattern: {
-                value: /^[a-zA-Z]+(\s[a-zA-Z]+)*$/,
-                message: 'Wrong college format',
-              },
+              required: "College is required",
             })}
-            name='college'
-            className='input-field'
           />
-          {errors.college && <span className="error">{errors.college.message}</span>}
         </div>
 
-        <div className='input-div'>
-          <label htmlFor="status" className='input-label'>Status: </label>
+        <div className="input-div">
+          <label htmlFor="status" className="input-label">
+            Status:{" "}
+          </label>
           <select
+            className="input-field"
+            pattern="\S"
             {...register("status", {
-              required: 'Status is required',
-              pattern: {
-                value: /\S/,
-                message: 'Status is required',
-              },
+              required: "Status is required",
             })}
-            name='status'
-            className='input-field'
           >
             <option value="">Select</option>
             <option value="Not answered">Not answered</option>
             <option value="Not interested">Not interested</option>
-            <option value="Pending">Pending</option>
+            <option value="Recall">Recall</option>
             <option value="Registered">Registered</option>
           </select>
-          {errors.status && <span className="error">{errors.status.message}</span>}
         </div>
 
-        <div className='input-div'>
-          <input type="submit" className='btn' value="Submit" />
+        <div className="input-div">
+          <input type="submit" className="btn" value="Submit" />
         </div>
-
       </form>
     </div>
   );
 }
-
-
-

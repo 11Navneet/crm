@@ -1,27 +1,25 @@
-import React,  { useContext } from "react";
-import { useNavigate} from "react-router-dom";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { DataGrid } from "@mui/x-data-grid";
-import EditIcon from '@mui/icons-material/Edit';
+import EditIcon from "@mui/icons-material/Edit";
 import { DeleteOutline } from "@mui/icons-material";
 
-import {UserContext} from '..//..//utils/contexts/UserContext'
-import "./userList.css";
+import { UserContext } from "..//..//utils/contexts/UserContext";
+import "../../assets/styles/common-table.css";
 
-
-export default function UserList() {
-
+function Users() {
   const navigate = useNavigate();
-  const {usersData, setUsersData} = useContext(UserContext)
+  const { usersData, setUsersData } = useContext(UserContext);
 
-  console.log('data in usersList',usersData);
+  console.log("data in usersList", usersData);
 
   const handleDelete = (id) => {
     setUsersData(usersData.filter((item) => item.id !== id));
   };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 90, headerClassName: "userHeader" },
+    { field: "id", headerName: "Id", width: 90, headerClassName: "userHeader" },
     {
       field: "name",
       headerName: "User",
@@ -57,13 +55,11 @@ export default function UserList() {
       renderCell: (params) => {
         return (
           <>
-
             <EditIcon
               className="userListEdit"
               onClick={() => navigate(`/user/${params.row.id}`)}
             />
 
-           
             <DeleteOutline
               className="userListDelete"
               onClick={() => handleDelete(params.row.id)}
@@ -78,10 +74,11 @@ export default function UserList() {
     <div className="userList">
       <div className="userList-title-div">
         <h3>Users</h3>
-        <button onClick={() => navigate("/newUser")}>ADD</button>
+        <button onClick={() => navigate("/newUser")} className="add-btn">
+          ADD
+        </button>
       </div>
-      {
-        usersData && 
+      {usersData && (
         <DataGrid
           rows={usersData}
           columns={columns}
@@ -93,7 +90,9 @@ export default function UserList() {
           pageSizeOptions={[5, 10]}
           checkboxSelection
         />
-      }
+      )}
     </div>
   );
 }
+
+export default Users;

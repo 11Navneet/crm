@@ -12,7 +12,6 @@ import {
   HowToReg,
 } from "@mui/icons-material";
 
-
 export default function Sidebar() {
   return (
     <div className="sidebar">
@@ -30,13 +29,12 @@ export default function Sidebar() {
             </NavLink>
             <NavLink to="/leads" className="sidebarListItem">
               <PhoneCallback className="sidebarIcon" />
-              Leads 
+              Leads
             </NavLink>
             <NavLink to="/potentialLeads" className="sidebarListItem">
               <Stars className="sidebarIcon" />
               Potential Leads
             </NavLink>
-            
           </div>
         </div>
         <div className="sidebarMenu">
@@ -50,11 +48,11 @@ export default function Sidebar() {
               <Assessment className="sidebarIcon" />
               Reports
             </NavLink>
-            <NavLink to="/userData" className="sidebarListItem">
+            <NavLink to="/importLeads" className="sidebarListItem">
               <CloudUpload className="sidebarIcon" />
               Import Leads
             </NavLink>
-            <NavLink to="/userData" className="sidebarListItem">
+            <NavLink to="/exportLeads" className="sidebarListItem">
               <CloudDownload className="sidebarIcon" />
               Export Leads
             </NavLink>

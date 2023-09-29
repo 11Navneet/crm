@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ImportLeads() {
-  return (
-    <div>
-      its import 
-    </div>
-  )
+  return <div>its import</div>;
 }
 
-export default ImportLeads
+export default ImportLeads;

@@ -5,45 +5,49 @@ import { DataGrid } from "@mui/x-data-grid";
 import EditIcon from "@mui/icons-material/Edit";
 import { DeleteOutline } from "@mui/icons-material";
 
-import { AttendanceContext } from "..//..//utils/contexts/AttendanceContext";
+import { LeadContext } from "../../utils/contexts/LeadContext";
 import "../../assets/styles/common-table.css";
 
-export default function Attendance() {
+export default function Leads() {
   const navigate = useNavigate();
-  const { attendanceData, setAttendanceData } = useContext(AttendanceContext);
+  const { leadsData, setLeadsData } = useContext(LeadContext);
 
-  console.log("data in usersList", attendanceData);
+  console.log("data in usersList", leadsData);
 
   const handleDelete = (id) => {
-    setAttendanceData(attendanceData.filter((item) => item.id !== id));
+    setLeadsData(leadsData.filter((item) => item.id !== id));
   };
 
   const columns = [
+    { field: "id", headerName: "Id", width: 90, headerClassName: "userHeader" },
     {
-      field: "id",
-      headerName: "Id",
-      width: 90,
-      headerClassName: "userHeader",
-    },
-    {
-      field: "date",
-      headerName: "Date",
+      field: "name",
+      headerName: "Name",
       width: 200,
       headerClassName: "userHeader",
-      renderCell: (params) => {
-        return <div className="userListUser">{params.row.date}</div>;
-      },
     },
     {
-      field: "loginTime",
-      headerName: "Login Time",
-      width: 160,
+      field: "email",
+      headerName: "Email",
+      width: 200,
       headerClassName: "userHeader",
     },
     {
-      field: "logoutTime",
-      headerName: "Logout Time",
-      width: 150,
+      field: "status",
+      headerName: "Status",
+      width: 120,
+      headerClassName: "userHeader",
+    },
+    {
+      field: "phone",
+      headerName: "Phone",
+      width: 120,
+      headerClassName: "userHeader",
+    },
+    {
+      field: "college",
+      headerName: "College",
+      width: 180,
       headerClassName: "userHeader",
     },
     {
@@ -56,7 +60,7 @@ export default function Attendance() {
           <>
             <EditIcon
               className="userListEdit"
-              onClick={() => navigate(`/attendance/${params.row.id}`)}
+              onClick={() => navigate(`/lead/${params.row.id}`)}
             />
 
             <DeleteOutline
@@ -72,14 +76,14 @@ export default function Attendance() {
   return (
     <div className="userList">
       <div className="userList-title-div">
-        <h3>Attendance</h3>
-        <button onClick={() => navigate("/markAttendance")} className="add-btn">
+        <h3>Leads</h3>
+        <button onClick={() => navigate("/newLead")} className="add-btn">
           ADD
         </button>
       </div>
-      {attendanceData && (
+      {leadsData && (
         <DataGrid
-          rows={attendanceData}
+          rows={leadsData}
           columns={columns}
           initialState={{
             pagination: {
