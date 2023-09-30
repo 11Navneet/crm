@@ -8,6 +8,9 @@ import { DeleteOutline } from "@mui/icons-material";
 import { UserContext } from "..//..//utils/contexts/UserContext";
 import "../../assets/styles/common-table.css";
 
+import Topbar from "../../components/topbar/Topbar";
+import Sidebar from "../../components/sidebar/Sidebar";
+
 function Users() {
   const navigate = useNavigate();
   const { usersData, setUsersData } = useContext(UserContext);
@@ -71,27 +74,33 @@ function Users() {
   ];
 
   return (
-    <div className="userList">
-      <div className="userList-title-div">
-        <h3>Users</h3>
-        <button onClick={() => navigate("/newUser")} className="add-btn">
-          ADD
-        </button>
+    <>
+      <Topbar />
+      <div className="container">
+        <Sidebar />
+        <div className="userList">
+          <div className="userList-title-div">
+            <h3>Users</h3>
+            <button onClick={() => navigate("/newUser")} className="add-btn">
+              ADD
+            </button>
+          </div>
+          {usersData && (
+            <DataGrid
+              rows={usersData}
+              columns={columns}
+              initialState={{
+                pagination: {
+                  paginationModel: { page: 0, pageSize: 5 },
+                },
+              }}
+              pageSizeOptions={[5, 10]}
+              checkboxSelection
+            />
+          )}
+        </div>
       </div>
-      {usersData && (
-        <DataGrid
-          rows={usersData}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
-            },
-          }}
-          pageSizeOptions={[5, 10]}
-          checkboxSelection
-        />
-      )}
-    </div>
+    </>
   );
 }
 

@@ -8,6 +8,9 @@ import { DeleteOutline } from "@mui/icons-material";
 import { LeadContext } from "../../utils/contexts/LeadContext";
 import "../../assets/styles/common-table.css";
 
+import Topbar from "../../components/topbar/Topbar";
+import Sidebar from "../../components/sidebar/Sidebar";
+
 export default function Leads() {
   const navigate = useNavigate();
   const { leadsData, setLeadsData } = useContext(LeadContext);
@@ -74,26 +77,32 @@ export default function Leads() {
   ];
 
   return (
-    <div className="userList">
-      <div className="userList-title-div">
-        <h3>Leads</h3>
-        <button onClick={() => navigate("/newLead")} className="add-btn">
-          ADD
-        </button>
+    <>
+      <Topbar />
+      <div className="container">
+        <Sidebar />
+        <div className="userList">
+          <div className="userList-title-div">
+            <h3>Leads</h3>
+            <button onClick={() => navigate("/newLead")} className="add-btn">
+              ADD
+            </button>
+          </div>
+          {leadsData && (
+            <DataGrid
+              rows={leadsData}
+              columns={columns}
+              initialState={{
+                pagination: {
+                  paginationModel: { page: 0, pageSize: 5 },
+                },
+              }}
+              pageSizeOptions={[5, 10]}
+              checkboxSelection
+            />
+          )}
+        </div>
       </div>
-      {leadsData && (
-        <DataGrid
-          rows={leadsData}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
-            },
-          }}
-          pageSizeOptions={[5, 10]}
-          checkboxSelection
-        />
-      )}
-    </div>
+    </>
   );
 }

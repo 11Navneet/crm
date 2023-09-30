@@ -1,5 +1,8 @@
 .form-bg{
-    width:100%;
+    width:100svw;
+    min-width: 100svw;
+    height:100svh;
+    min-height:100svh;
     display: flex;
     align-items: center;
     justify-content: center;

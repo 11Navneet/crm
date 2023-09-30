@@ -2,11 +2,9 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
-import Signup from './pages/auth/Signup'
-import Login from './pages/auth/Login'
-
-import Sidebar from "./components/sidebar/Sidebar";
-import Topbar from "./components/topbar/Topbar";
+import Signup from "./pages/auth/Signup";
+import Login from "./pages/auth/Login";
+import PrivateRoutes from "./utils/PrivateRoutes";
 
 import Home from "./pages/home/Home";
 
@@ -29,38 +27,38 @@ import Report from "./pages/reports/Report";
 function App() {
   return (
     <>
-      <Topbar />
-      <div className="container">
-        <Sidebar />
-        <Routes>
 
+      <Routes>
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
 
-          <Route path="/" element={<Home />} />
+          <Route element={<PrivateRoutes />}>
+              <Route exact path="/" element={<Home />} />
 
-          <Route path="/attendance" element={<Attendance />} />
-          <Route
-            path="/attendance/:attendanceId"
-            element={<EditAttendance />}
-          />
-          <Route path="/markAttendance" element={<MarkAttendance />} />
+              <Route path="/attendance" element={<Attendance />} />
+              <Route
+              path="/attendance/:attendanceId"
+              element={<EditAttendance />}
+              />
+              <Route path="/markAttendance" element={<MarkAttendance />} />
 
-          <Route path="/users" element={<Users />} />
-          <Route path="/user/:userId" element={<EditUser />} />
-          <Route path="/newUser" element={<NewUser />} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/user/:userId" element={<EditUser />} />
+              <Route path="/newUser" element={<NewUser />} />
 
-          <Route path="/leads" element={<Lead />} />
-          <Route path="/lead/:leadId" element={<EditLead />} />
-          <Route path="/newLead" element={<NewLead />} />
+              <Route path="/leads" element={<Lead />} />
+              <Route path="/lead/:leadId" element={<EditLead />} />
+              <Route path="/newLead" element={<NewLead />} />
 
-          <Route path="/potentialLeads" element={<PotentialLead />} />
+              <Route path="/potentialLeads" element={<PotentialLead />} />
 
-          <Route path="/report" element={<Report />} />
-          <Route path="/exportLeads" element={<ExportLeads />} />
-        </Routes>
-      </div>
+              <Route path="/report" element={<Report />} />
+              <Route path="/exportLeads" element={<ExportLeads />} />
+          </Route>
+
+      </Routes>
+
     </>
   );
 }

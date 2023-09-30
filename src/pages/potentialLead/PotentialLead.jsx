@@ -7,6 +7,9 @@ import EditIcon from "@mui/icons-material/Edit";
 import { LeadContext } from "../../utils/contexts/LeadContext";
 import "../../assets/styles/common-table.css";
 
+import Topbar from "../../components/topbar/Topbar";
+import Sidebar from "../../components/sidebar/Sidebar";
+
 export default function PotentialLead() {
   const navigate = useNavigate();
   const { leadsData } = useContext(LeadContext);
@@ -72,23 +75,29 @@ export default function PotentialLead() {
   ];
 
   return (
-    <div className="userList">
-      <div className="userList-title-div">
-        <h3>Potential Leads</h3>
+    <>
+      <Topbar />
+      <div className="container">
+        <Sidebar />
+        <div className="userList">
+          <div className="userList-title-div">
+            <h3>Potential Leads</h3>
+          </div>
+          {filteredLeads && (
+            <DataGrid
+              rows={filteredLeads}
+              columns={columns}
+              initialState={{
+                pagination: {
+                  paginationModel: { page: 0, pageSize: 5 },
+                },
+              }}
+              pageSizeOptions={[5, 10]}
+              checkboxSelection
+            />
+          )}
+        </div>
       </div>
-      {filteredLeads && (
-        <DataGrid
-          rows={filteredLeads}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
-            },
-          }}
-          pageSizeOptions={[5, 10]}
-          checkboxSelection
-        />
-      )}
-    </div>
+    </>
   );
 }

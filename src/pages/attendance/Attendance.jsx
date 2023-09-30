@@ -8,6 +8,9 @@ import { DeleteOutline } from "@mui/icons-material";
 import { AttendanceContext } from "..//..//utils/contexts/AttendanceContext";
 import "../../assets/styles/common-table.css";
 
+import Topbar from "../../components/topbar/Topbar";
+import Sidebar from "../../components/sidebar/Sidebar";
+
 export default function Attendance() {
   const navigate = useNavigate();
   const { attendanceData, setAttendanceData } = useContext(AttendanceContext);
@@ -70,26 +73,35 @@ export default function Attendance() {
   ];
 
   return (
-    <div className="userList">
-      <div className="userList-title-div">
-        <h3>Attendance</h3>
-        <button onClick={() => navigate("/markAttendance")} className="add-btn">
-          ADD
-        </button>
+    <>
+      <Topbar />
+      <div className="container">
+        <Sidebar />
+        <div className="userList">
+          <div className="userList-title-div">
+            <h3>Attendance</h3>
+            <button
+              onClick={() => navigate("/markAttendance")}
+              className="add-btn"
+            >
+              ADD
+            </button>
+          </div>
+          {attendanceData && (
+            <DataGrid
+              rows={attendanceData}
+              columns={columns}
+              initialState={{
+                pagination: {
+                  paginationModel: { page: 0, pageSize: 5 },
+                },
+              }}
+              pageSizeOptions={[5, 10]}
+              checkboxSelection
+            />
+          )}
+        </div>
       </div>
-      {attendanceData && (
-        <DataGrid
-          rows={attendanceData}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
-            },
-          }}
-          pageSizeOptions={[5, 10]}
-          checkboxSelection
-        />
-      )}
-    </div>
+    </>
   );
 }

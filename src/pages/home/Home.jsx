@@ -6,23 +6,33 @@ import { userData } from "../../utils/dummyData";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 import WidgetLg from "../../components/widgetLg/WidgetLg";
 
+import Topbar from "../../components/topbar/Topbar";
+import Sidebar from "../../components/sidebar/Sidebar";
+
 function Home() {
   return (
-    <div className="home">
-      <FeaturedInfo />
+    <>
+      <Topbar />
+      <div className="container">
+        <Sidebar />
 
-      <Chart
-        data={userData}
-        title="User Analytics"
-        grid
-        dataKey="Active User"
-      />
+        <div className="home">
+          <FeaturedInfo />
 
-      <div className="homeWidgets">
-        <WidgetSm />
-        <WidgetLg />
+          <Chart
+            data={userData}
+            title="User Analytics"
+            grid
+            dataKey="Active User"
+          />
+
+          <div className="homeWidgets">
+            <WidgetSm />
+            <WidgetLg />
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,6 +1,9 @@
 import React from "react";
 import "./report.css";
 
+import Topbar from "../../components/topbar/Topbar";
+import Sidebar from "../../components/sidebar/Sidebar";
+
 export default function Report() {
   // Sample data for multiple cards
   const cardsData = [
@@ -44,23 +47,29 @@ export default function Report() {
   ];
 
   return (
-    <div className="cards-container">
-      {cardsData.map((user, index) => (
-        <div className="card" key={index}>
-          <div className="avatar"></div>
-          <div className="username">{user.name}</div>
-          <div className="assigned-leads">
-            <p>Assigned Leads: {user.assignedLeads}</p>
-          </div>
-          <div className="qualified-leads">
-            <p>Qualified Leads: {user.qualifiedLeads}</p>
-          </div>
-          <div className="disqualified-leads">
-            <p>Disqualified Leads: {user.disqualifiedLeads}</p>
-          </div>
-          <button className="button">View</button>
+    <>
+      <Topbar />
+      <div className="container">
+        <Sidebar />
+        <div className="cards-container">
+          {cardsData.map((user, index) => (
+            <div className="card" key={index}>
+              <div className="avatar"></div>
+              <div className="username">{user.name}</div>
+              <div className="assigned-leads">
+                <p>Assigned Leads: {user.assignedLeads}</p>
+              </div>
+              <div className="qualified-leads">
+                <p>Qualified Leads: {user.qualifiedLeads}</p>
+              </div>
+              <div className="disqualified-leads">
+                <p>Disqualified Leads: {user.disqualifiedLeads}</p>
+              </div>
+              <button className="button">View</button>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
+    </>
   );
 }
