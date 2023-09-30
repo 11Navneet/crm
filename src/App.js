@@ -2,6 +2,9 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
+import Signup from './pages/auth/Signup'
+import Login from './pages/auth/Login'
+
 import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 
@@ -30,6 +33,11 @@ function App() {
       <div className="container">
         <Sidebar />
         <Routes>
+
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+
           <Route path="/" element={<Home />} />
 
           <Route path="/attendance" element={<Attendance />} />
