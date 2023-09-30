@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 
+import image from "../../assets/images/logoWhiteBg.png";
+import "./auth.css";
+
 const Login = () => {
   const { register, handleSubmit } = useForm();
 
@@ -11,8 +14,11 @@ const Login = () => {
   };
 
   return (
-    <div className="form-bg">
-      <form onSubmit={handleSubmit(onSubmit)} className="main-form">
+    <div className="login-form-bg">
+      <div className="login-image-div">
+        <img src={image} alt="" className="login-image" />
+      </div>
+      <form onSubmit={handleSubmit(onSubmit)} className="login-main-form">
         <div className="input-div">
           <label htmlFor="email" className="input-label">
             Email:
