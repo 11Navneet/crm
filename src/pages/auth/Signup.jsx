@@ -1,6 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
+import image from "../../assets/images/logoWhiteBg.png";
+import "./auth.css";
+
 export default function Signup() {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -8,7 +11,10 @@ export default function Signup() {
   };
 
   return (
-    <div className="form-bg">
+    <div className="login-form-bg">
+      <div className="login-image-div">
+        <img src={image} alt="" className="login-image" />
+      </div>
       <form onSubmit={handleSubmit(onSubmit)} className="main-form">
         <div className="input-div">
           <label htmFor="username" className="input-label">

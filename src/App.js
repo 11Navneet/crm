@@ -27,12 +27,9 @@ import Report from "./pages/reports/Report";
 function App() {
   return (
     <>
-
       <Routes>
-
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-
           <Route element={<PrivateRoutes />}>
               <Route exact path="/" element={<Home />} />
 
@@ -56,9 +53,7 @@ function App() {
               <Route path="/report" element={<Report />} />
               <Route path="/exportLeads" element={<ExportLeads />} />
           </Route>
-
       </Routes>
-
     </>
   );
 }
