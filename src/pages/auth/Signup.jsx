@@ -17,7 +17,7 @@ export default function Signup() {
           <input
             className="input-field"
             type="text"
-            pattern="[A-Za-z]+(\s[A-Za-z]+)"
+            pattern="[A-Za-z]+(\s[A-Za-z]+)*"
             {...register("username", {
               required: true,
               min: 3,
