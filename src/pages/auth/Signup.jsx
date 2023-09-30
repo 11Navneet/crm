@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 export default function Signup() {
   const { register, handleSubmit } = useForm();
@@ -48,6 +49,11 @@ export default function Signup() {
               required: true,
             })}
           />
+        </div>
+        <div className="nav-link">
+          
+            Already have an account? <Link to="/login">Login</Link>
+          
         </div>
         <div className="input-div">
           <input type="submit" className="btn" />

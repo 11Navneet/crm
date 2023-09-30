@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -34,6 +36,11 @@ const Login = () => {
           />
         </div>
 
+        <div className="nav-link">
+        
+            Don't have an account? <Link to="/signup">Register</Link>
+          
+        </div>
         <div className="input-div">
           <input type="submit" className="btn" />
         </div>
