@@ -29,31 +29,31 @@ export default function PotentialLead() {
     {
       field: "name",
       headerName: "Name",
-      width: 200,
+      width: 150,
       headerClassName: "userHeader",
     },
     {
       field: "email",
       headerName: "Email",
-      width: 200,
-      headerClassName: "userHeader",
-    },
-    {
-      field: "status",
-      headerName: "Status",
-      width: 120,
+      width: 180,
       headerClassName: "userHeader",
     },
     {
       field: "phone",
-      headerName: "Phone",
-      width: 120,
+      headerName: "MobileNo",
+      width: 150,
       headerClassName: "userHeader",
     },
     {
       field: "college",
       headerName: "College",
       width: 180,
+      headerClassName: "userHeader",
+    },
+    {
+      field: "status",
+      headerName: "Status",
+      width: 130,
       headerClassName: "userHeader",
     },
     {

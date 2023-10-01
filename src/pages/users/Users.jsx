@@ -26,7 +26,7 @@ function Users() {
     {
       field: "name",
       headerName: "User",
-      width: 200,
+      width: 150,
       headerClassName: "userHeader",
       renderCell: (params) => {
         return <div className="userListUser">{params.row.name}</div>;
@@ -35,19 +35,25 @@ function Users() {
     {
       field: "email",
       headerName: "Email",
-      width: 200,
+      width: 230,
       headerClassName: "userHeader",
     },
     {
-      field: "active",
-      headerName: "Active",
-      width: 120,
+      field: "phone",
+      headerName: "MobileNo",
+      width: 150,
       headerClassName: "userHeader",
     },
     {
       field: "role",
       headerName: "Role",
-      width: 160,
+      width: 130,
+      headerClassName: "userHeader",
+    },
+    {
+      field: "active",
+      headerName: "Active",
+      width: 130,
       headerClassName: "userHeader",
     },
     {

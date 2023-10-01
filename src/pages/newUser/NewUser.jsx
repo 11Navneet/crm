@@ -18,23 +18,23 @@ export default function NewUser() {
 
   const onSubmit = (data) => {
     console.log("data", data);
-    const { name, email, active, role } = data;
+    const { name, email, phone, active, role } = data;
 
-    if (!name || !email || !active || !role) {
+    if (!name || !email || !phone || !active || !role) {
       console.log(errors);
     }
 
     if (!usersData) {
       let id = uuidv4();
       id = id.slice(0, 4);
-      setUsersData({ id, name, email, active, role });
+      setUsersData({ id, name, email, phone, active, role });
 
       navigate("/users");
     } else {
       let id = uuidv4();
       id = id.slice(0, 4);
 
-      setUsersData([...usersData, { id, name, email, active, role }]);
+      setUsersData([...usersData, { id, name, email, phone, active, role }]);
 
       navigate("/users");
     }
@@ -67,6 +67,20 @@ export default function NewUser() {
             {...register("email", { required: "Email is required" })}
           />
         </div>
+        <div className="input-div">
+          <label htmlFor="phone" className="input-label">
+            Phone:{" "}
+          </label>
+          <input
+            type="tel"
+            className="input-field"
+            pattern="[0-9]{10}"
+            {...register("phone", {
+              required: "Phone is required",
+            })}
+          />
+        </div>
+
         <div className="input-div">
           <label htmlFor="active" className="input-label">
             Active:{" "}

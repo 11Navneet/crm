@@ -111,6 +111,7 @@ export default function NewLead() {
             })}
           >
             <option value="">Select</option>
+            <option value="New Lead">New Lead</option>
             <option value="Not answered">Not answered</option>
             <option value="Not interested">Not interested</option>
             <option value="Recall">Recall</option>
