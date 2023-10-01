@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
@@ -8,9 +9,12 @@ import "./auth.css";
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log('login data: ',data);
+    localStorage.setItem("token",'externsclub');
+    navigate('/');
   };
 
   return (
