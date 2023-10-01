@@ -18,23 +18,23 @@ export default function NewLead() {
 
   const onSubmit = (data) => {
     console.log("data", data);
-    const { name, email, phone, college, status } = data;
+    const { name, email, mobileNo, college, status } = data;
 
-    if (!name || !email || !phone || !college || !status) {
+    if (!name || !email || !mobileNo || !college || !status) {
       console.log(errors);
     }
 
     if (!leadsData) {
       let id = uuidv4();
       id = id.slice(0, 4);
-      setLeadsData({ id, name, email, phone, college, status });
+      setLeadsData({ id, name, email, mobileNo, college, status });
 
       navigate("/leads");
     } else {
       let id = uuidv4();
       id = id.slice(0, 4);
 
-      setLeadsData([...leadsData, { id, name, email, phone, college, status }]);
+      setLeadsData([...leadsData, { id, name, email, mobileNo, college, status }]);
 
       navigate("/leads");
     }
@@ -72,15 +72,15 @@ export default function NewLead() {
         </div>
 
         <div className="input-div">
-          <label htmlFor="phone" className="input-label">
-            Phone:{" "}
+          <label htmlFor="mobileNo" className="input-label">
+          MobileNo:{" "}
           </label>
           <input
             type="tel"
             className="input-field"
             pattern="[0-9]{10}"
-            {...register("phone", {
-              required: "Phone is required",
+            {...register("mobileNo", {
+              required: "MobileNo is required",
             })}
           />
         </div>

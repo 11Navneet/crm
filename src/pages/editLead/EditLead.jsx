@@ -20,7 +20,7 @@ export default function EditLead() {
     if (lead) {
       setValue("name", lead.name);
       setValue("email", lead.email);
-      setValue("phone", lead.phone);
+      setValue("mobileNo", lead.mobileNo);
       setValue("college", lead.college);
       setValue("status", lead.status);
     }
@@ -29,13 +29,13 @@ export default function EditLead() {
   const onSubmit = (data) => {
     console.log("updatedlead: ", data);
 
-    let { name, email, phone, college, status } = data;
+    let { name, email, mobileNo, college, status } = data;
     // eslint-disable-next-line array-callback-return
     let updatedData = leadsData.map((lead) => {
       if (lead.id === id) {
         lead.name = name;
         lead.email = email;
-        lead.phone = phone;
+        lead.mobileNo = mobileNo;
         lead.college = college;
         lead.status = status;
       }
@@ -77,15 +77,15 @@ export default function EditLead() {
         </div>
 
         <div className="input-div">
-          <label htmlFor="phone" className="input-label">
-            Phone:{" "}
+          <label htmlFor="mobileNo" className="input-label">
+            MobileNo:{" "}
           </label>
           <input
             type="tel"
             className="input-field"
             pattern="[0-9]{10}"
-            {...register("phone", {
-              required: "Phone is required",
+            {...register("mobileNo", {
+              required: "MobileNo is required",
             })}
           />
         </div>
@@ -116,6 +116,7 @@ export default function EditLead() {
             })}
           >
             <option value="">Select</option>
+            <option value="New Lead">New Lead</option>
             <option value="Not answered">Not answered</option>
             <option value="Not interested">Not interested</option>
             <option value="Recall">Recall</option>

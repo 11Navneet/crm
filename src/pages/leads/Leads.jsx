@@ -36,7 +36,7 @@ export default function Leads() {
       headerClassName: "userHeader",
     },
     {
-      field: "phone",
+      field: "mobileNo",
       headerName: "MobileNo",
       width: 150,
       headerClassName: "userHeader",

@@ -67,6 +67,19 @@ function EditUser() {
             {...register("email", { required: "Email is required" })}
           />
         </div>
+        <div className="input-div">
+          <label htmlFor="mobileNo" className="input-label">
+            MobileNo:{" "}
+          </label>
+          <input
+            type="tel"
+            className="input-field"
+            pattern="[0-9]{10}"
+            {...register("mobileNo", {
+              required: "MobileNo is required",
+            })}
+          />
+        </div>
 
         <div className="input-div">
           <label htmlFor="active" className="input-label">

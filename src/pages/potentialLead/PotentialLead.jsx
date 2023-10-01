@@ -39,7 +39,7 @@ export default function PotentialLead() {
       headerClassName: "userHeader",
     },
     {
-      field: "phone",
+      field: "mobileNo",
       headerName: "MobileNo",
       width: 150,
       headerClassName: "userHeader",
