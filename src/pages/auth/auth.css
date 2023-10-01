@@ -24,14 +24,28 @@
     object-position: center;
 }
 
-.login-main-form{
-    width: 25vw;
-    max-width: 25vw;
+.hyperlink-div{
+    width:100%;
+    min-width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-    padding: 2rem;
-    border-radius: 8px;
-    border: 2px solid var(--bg-clr);
+    justify-content: space-between;
+}
+
+.nav-link{
+    text-decoration: none;
+    color:var(--bg-clr);
+    font-weight: bold;
+    font-size: clamp(12px,1vw,18px);
+}
+
+.fpwd-span{
+    float:right;
+}
+
+.fpwd-link{
+    font-size: clamp(8px,1vw,12px);
+    margin-top:6px;
+    color:var(--bg-clr);
+    cursor: pointer;
+    text-decoration: none;
 }

@@ -18,7 +18,7 @@ const Login = () => {
       <div className="login-image-div">
         <img src={image} alt="" className="login-image" />
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className="login-main-form">
+      <form onSubmit={handleSubmit(onSubmit)} className="main-form">
         <div className="input-div">
           <label htmlFor="email" className="input-label">
             Email:
@@ -34,6 +34,9 @@ const Login = () => {
         <div className="input-div">
           <label htmlFor="password" className="input-label">
             Password:
+            <span className="fpwd-span">
+              <Link to='/forgotPassword' className="fpwd-link">forgot password</Link>
+            </span>
           </label>
           <input
             className="input-field"
@@ -42,9 +45,14 @@ const Login = () => {
           />
         </div>
 
-        <div className="nav-link">
+        <div className="hyperlink-div">
         
-            Don't have an account? <Link to="/signup">Register</Link>
+            <span>
+              Don't have an account? 
+            </span>
+            <span>
+              <Link to="/signup" className="nav-link">Register</Link>
+            </span>
           
         </div>
         <div className="input-div">

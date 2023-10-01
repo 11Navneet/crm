@@ -56,9 +56,14 @@ export default function Signup() {
             })}
           />
         </div>
-        <div className="nav-link">
+        <div className="hyperlink-div">
           
-            Already have an account? <Link to="/login">Login</Link>
+              <span>
+                  Already have an account? 
+              </span>
+              <span>
+                  <Link to="/login" className="nav-link">Login</Link>
+              </span>
           
         </div>
         <div className="input-div">

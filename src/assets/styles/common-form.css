@@ -29,6 +29,7 @@
 }
 
 .input-label{
+    width:100%;
     margin:0;
     font-weight: 600;
 }
